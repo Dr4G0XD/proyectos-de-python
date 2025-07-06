@@ -1,4 +1,4 @@
-
+# Longitudes y cuadrantes
 print("Bienvenido al programa de longitudes y cuadrantes")
 # Este programa solicita al usuario una palabra y valida su longitud
 #cololcamos una variable para almacenar la palabra
