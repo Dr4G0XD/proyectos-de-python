@@ -1,48 +1,106 @@
-# Longitudes y Cuadrantes
+# Longitudes y cuadrantes
+# Este programa combina dos funcionalidades principales:
+1. Validación de la longitud de una palabra ingresada por el usuario.
+2. Identificación del cuadrante de un punto dadas sus coordenadas X e Y.
 
-Este repositorio contiene un programa Python que realiza dos funciones principales:
+print("Bienvenido al programa de longitudes y cuadrantes")
 
-1.  **Validación de longitud de palabra:** Solicita al usuario una palabra y asegura que esta tenga entre 4 y 8 caracteres.
-2.  **Identificación de cuadrante:** Pide dos coordenadas (X e Y) y determina en cuál de los cuatro cuadrantes del plano cartesiano se encuentra el punto, asegurando que ninguna coordenada sea cero.
+# --- Reto 1: Validación de la longitud de la palabra ---
+
+Creamos una variable para almacenar la palabra que el usuario va a introducir.
+
+Se inicializa vacía para que el bucle de validación pueda comenzar.
+
+Palabra = ""
+
+ Iniciamos un bucle 'while' que se repetirá continuamente
+ 
+ hasta que la longitud de la palabra cumpla con las condiciones:
+ 
+ que sea mayor o igual a 4 Y menor o igual a 8 caracteres.
+ 
+    while not (len(Palabra) >= 4 and len(Palabra) <= 8):
+Solicitamos al usuario que introduzca una palabra.
+
+    Palabra = input("Introduce una palabra de cuatro a ocho caracteres: ")
+
+Comprobamos la longitud de la palabra ingresada.
+
+Si la longitud es menor que 4, significa que faltan letras.
+
+    if len(Palabra) < 4:
+Mostramos un mensaje informativo indicando cuántas letras faltan.
+
+    print(f"Hacen falta letras. Solo tienes {len(Palabra)} letras.")
+Si la longitud es mayor que 8, significa que sobran letras.
+
+    elif len(Palabra) > 8:
+Mostramos un mensaje informativo indicando cuántas letras sobran.
+
+        print(f"Sobran letras. Tienes {len(Palabra)} letras.")
+Si la longitud está entre 4 y 8 (inclusive), el bucle finalizará automáticamente
+porque la condición 'while not (len(Palabra) >= 4 and len(Palabra) <= 8)'
+se volverá falsa.
+
+Una vez que la palabra tiene la longitud correcta, salimos del bucle.
+
+Mostramos un mensaje de éxito, confirmando la palabra y su longitud.
+
+    print(f"Tu palabra es \"{Palabra}\" y tiene {len(Palabra)} letras.")
+    print("¡Tu palabra es correcta!")
 
 ---
 
-## Características
+# --- Reto 2: Identificación de cuadrantes ---
 
-* **Validación robusta:** Comprueba que la palabra ingresada por el usuario tenga una longitud válida (entre 4 y 8 caracteres).
-* **Mensajes de ayuda:** Proporciona retroalimentación clara si la palabra es demasiado corta o demasiado larga.
-* **Identificación de cuadrantes:** Calcula y muestra el cuadrante correcto para un par de coordenadas dadas.
-* **Manejo de entrada:** Asegura que las coordenadas ingresadas no sean cero y maneja entradas no numéricas.
+    print("\n--- Identificación de cuadrantes ---")
 
----
+ Inicializamos las coordenadas X e Y a 0.
+ 
+Esto es importante para que el bucle de validación de coordenadas se ejecute al menos una vez.
 
-## Cómo ejecutar el programa
+    x = 0
+    y = 0
 
-Sigue estos pasos para poner en marcha el programa en tu máquina local.
+Iniciamos un bucle 'while' que continuará pidiendo coordenadas
 
-### Prerrequisitos
+hasta que ambas (x e y) sean diferentes de cero.
 
-Asegúrate de tener Python instalado en tu sistema. Puedes descargarlo desde [python.org](https://www.python.org/downloads/).
+    while x == 0 or y == 0:
+Usamos un bloque 'try-except' para manejar posibles errores de entrada.
 
-### Ejecución
+Si el usuario ingresa algo que no es un número (ej. texto), se captura el error.
 
-1.  **Clona el repositorio** (si aún no lo has hecho):
-    ```bash
-    git clone [https://github.com/Dr4G0XD/proyectos-de-python.git](https://github.com/Dr4G0XD/proyectos-de-python.git)
-    ```
-2.  **Navega al directorio del proyecto**:
-    ```bash
-    cd proyectos-de-python
-    ```
-    *(Asegúrate de que el archivo con el código principal esté en este directorio o ajusta la ruta si está en una subcarpeta.)*
-3.  **Ejecuta el script**:
-    ```bash
-    python tu_programa.py
-    ```
-    *(Reemplaza `tu_programa.py` con el nombre de tu archivo Python, si es diferente.)*
+    try:
+        # Solicitamos al usuario que ingrese la coordenada X y la convertimos a un número flotante.
+        x = float(input("Ingrese la coordenada X (no puede ser 0): "))
+        # Solicitamos al usuario que ingrese la coordenada Y y la convertimos a un número flotante.
+        y = float(input("Ingrese la coordenada Y (no puede ser 0): "))
 
----
+        # Después de obtener las entradas, verificamos si alguna de las coordenadas es cero.
+        if x == 0 or y == 0:
+            # Si alguna es cero, informamos al usuario y el bucle se repetirá.
+            print("Las coordenadas no pueden ser cero. Por favor, inténtalo de nuevo.")
+    except ValueError:
+        # Si el usuario ingresó algo que no se pudo convertir a número (ej. letras),
+        # mostramos un mensaje de error y el bucle se repetirá.
+        print("Entrada inválida. Por favor, ingresa un número.")
 
-## Ejemplo de uso
+# Una vez que tenemos coordenadas válidas (ninguna es cero), procedemos a determinar el cuadrante.
 
-Una vez que ejecutes el programa, verás algo similar a esto en tu terminal:
+    # Cuadrante I: X positiva y Y positiva.
+    if x > 0 and y > 0:
+    print("El punto se encuentra en el cuadrante I.")
+    # Cuadrante II: X negativa y Y positiva.
+    elif x < 0 and y > 0:
+    print("El punto se encuentra en el cuadrante II.")
+    # Cuadrante III: X negativa y Y negativa.
+    elif x < 0 and y < 0:
+    print("El punto se encuentra en el cuadrante III.")
+    # Cuadrante IV: X positiva y Y negativa.
+    elif x > 0 and y < 0:
+    print("El punto se encuentra en el cuadrante IV.")
+    
+Nota: No se necesita un 'else' final porque la validación previa
+
+asegura que x e y no serán 0, cubriendo así todos los cuadrantes posibles.
