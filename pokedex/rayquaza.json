@@ -1,0 +1,20 @@
+{
+    "name": "Rayquaza",
+    "weight": 206.5,
+    "height": 7.0,
+    "types": [
+        "dragon",
+        "flying"
+    ],
+    "abilities": [
+        "air-lock"
+    ],
+    "moves": [
+        "swords-dance",
+        "fly",
+        "bind",
+        "headbutt",
+        "body-slam"
+    ],
+    "image_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png"
+}

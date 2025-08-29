@@ -1,0 +1,21 @@
+{
+    "name": "Machoke",
+    "weight": 70.5,
+    "height": 1.5,
+    "types": [
+        "fighting"
+    ],
+    "abilities": [
+        "guts",
+        "no-guard",
+        "steadfast"
+    ],
+    "moves": [
+        "karate-chop",
+        "mega-punch",
+        "fire-punch",
+        "ice-punch",
+        "thunder-punch"
+    ],
+    "image_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png"
+}
